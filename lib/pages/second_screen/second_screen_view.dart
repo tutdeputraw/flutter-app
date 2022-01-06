@@ -8,25 +8,68 @@ class SecondScreenView extends StatelessWidget {
     final controller = Get.put(SecondScreenController());
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Screen'),
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_new_outlined,
-          ),
-          onPressed: controller.backOnClick,
-        ),
+      appBar: appBarWidget(
+        title: 'Second Screen',
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('Welcome'),
-          Text('John Dao'),
-          Spacer(),
-          Text('Selected User Name'),
-          Spacer(),
-          ElevatedButton(onPressed: (){}, child: const Text('Choose a User')),
+          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              'Welcome',
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              controller.name,
+              style: GoogleFonts.poppins(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          const Spacer(),
+          GetBuilder<SelectedUserController>(
+            init: SelectedUserController(),
+            builder: (_) => Container(
+              alignment: Alignment.center,
+              child: Text(
+                _.name,
+                style: GoogleFonts.poppins(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+          const Spacer(),
+          Container(
+            padding: const EdgeInsets.all(32),
+            child: ElevatedButton(
+              onPressed: controller.chooseAUserOnClick,
+              child: Text(
+                'Choose a User',
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: const EdgeInsets.all(12),
+                primary: const Color(0xFF2B637B),
+              ),
+            ),
+          ),
         ],
       ),
     );

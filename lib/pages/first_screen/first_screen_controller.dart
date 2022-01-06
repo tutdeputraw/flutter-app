@@ -4,6 +4,12 @@ class FirstScreenController extends GetxController {
   TextEditingController _nameTF = TextEditingController();
   TextEditingController _palindromTF = TextEditingController();
 
+  @override
+  void onInit() {
+    Get.put(SelectedUserController());
+    super.onInit();
+  }
+
   void checkButtonOnClick() {
     final palindrom = Get.put(PalindromController());
 
@@ -27,7 +33,8 @@ class FirstScreenController extends GetxController {
   }
 
   void nextButtonOnCLick() {
-    Get.to(() => const SecondScreenView());
+    final secondScreen = Get.put(SecondScreenController());
+    secondScreen.goToPage(nameTF.text);
   }
 
   TextEditingController get nameTF => _nameTF;

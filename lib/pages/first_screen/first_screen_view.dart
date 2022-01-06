@@ -36,12 +36,25 @@ class FirstScreenView extends StatelessWidget {
                 ElevatedButton(
                   style: _buttonStyle,
                   onPressed: controller.checkButtonOnClick,
-                  child: const Text('CHECK'),
+                  child: Text(
+                    'CHECK',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
+                const SizedBox(height: 15),
                 ElevatedButton(
                   style: _buttonStyle,
                   onPressed: controller.nextButtonOnCLick,
-                  child: const Text('NEXT'),
+                  child: Text(
+                    'NEXT',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -53,7 +66,13 @@ class FirstScreenView extends StatelessWidget {
 
   InputDecoration _textFieldStyle(String label) {
     return InputDecoration(
+      fillColor: Colors.white,
+      filled: true,
       labelText: label,
+      labelStyle: GoogleFonts.poppins(
+        fontWeight: FontWeight.w500,
+        fontSize: 16,
+      ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -69,6 +88,7 @@ class FirstScreenView extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
+      padding: EdgeInsets.all(12),
       primary: const Color(0xFF2B637B),
     );
   }
