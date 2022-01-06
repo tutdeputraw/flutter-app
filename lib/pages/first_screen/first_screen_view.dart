@@ -19,44 +19,52 @@ class FirstScreenView extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(32),
             alignment: Alignment.center,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextFormField(
-                  controller: controller.nameTF,
-                  decoration: _textFieldStyle('Name'),
-                ),
-                const SizedBox(height: 22),
-                TextFormField(
-                  controller: controller.palindromTF,
-                  decoration: _textFieldStyle('Palindrom'),
-                ),
-                const SizedBox(height: 45),
-                ElevatedButton(
-                  style: _buttonStyle,
-                  onPressed: controller.checkButtonOnClick,
-                  child: Text(
-                    'CHECK',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/btn_add_photo.png',
+                    height: 100,
+                    width: 100,
+                  ),
+                  const SizedBox(height: 60),
+                  TextFormField(
+                    controller: controller.nameTF,
+                    decoration: _textFieldStyle('Name'),
+                  ),
+                  const SizedBox(height: 22),
+                  TextFormField(
+                    controller: controller.palindromTF,
+                    decoration: _textFieldStyle('Palindrom'),
+                  ),
+                  const SizedBox(height: 45),
+                  ElevatedButton(
+                    style: _buttonStyle,
+                    onPressed: controller.checkButtonOnClick,
+                    child: Text(
+                      'CHECK',
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                ElevatedButton(
-                  style: _buttonStyle,
-                  onPressed: controller.nextButtonOnCLick,
-                  child: Text(
-                    'NEXT',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
+                  const SizedBox(height: 15),
+                  ElevatedButton(
+                    style: _buttonStyle,
+                    onPressed: controller.nextButtonOnCLick,
+                    child: Text(
+                      'NEXT',
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
